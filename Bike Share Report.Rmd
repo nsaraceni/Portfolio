@@ -95,7 +95,7 @@ g. You can potentially connect with local businesses that may offer up perks if 
 7. Connect with the community.
 
 
-[Tableau Visualization Analysis]:<https://public.tableau.com/views/BikeShareCaseStudy_16854991938120/Dashboard1?:language=en-US&:display_count=n&:origin=viz_share_link
+[Tableau Visualization Analysis](https://public.tableau.com/views/BikeShareCaseStudy_16854991938120/Dashboard1?:language=en-US&:display_count=n&:origin=viz_share_link)
 
 
 
