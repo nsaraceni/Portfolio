@@ -95,7 +95,8 @@ g. You can potentially connect with local businesses that may offer up perks if 
 7. Connect with the community.
 
 
-[Tableau Visualization Analysis](https://public.tableau.com/views/BikeShareCaseStudy_16854991938120/Dashboard1?:language=en-US&:display_count=n&:origin=viz_share_link)
+Tableau Visualization Analysis
+https://public.tableau.com/views/BikeShareCaseStudy_16854991938120/Dashboard1?:language=en-US&:display_count=n&:origin=viz_share_link
 
 
 
@@ -171,11 +172,12 @@ tripdata_df_v2%>%
   group_by(usertype, weekday)%>%
   summarise(number_of_rides=n()
              ,average_duration = mean(ride_length)) %>% 	
-  arrange(usertype, weekday)	
+  arrange(usertype, weekday)
   
-
 ```
-https://public.tableau.com/views/BikeShareCaseStudy_16854991938120/Dashboard1?:language=en-US&:display_count=n&:origin=viz_share_link
+GGplot Visualization 
+
+
 ```{r analyzing data}
 
 tripdata_df_v2 %>% 
@@ -189,7 +191,8 @@ tripdata_df_v2 %>%
 
 
 ```
-[GGplot Visualization]:<https://github.com/nsaraceni/Portfolio/blob/630bb417ce7134fdbfddaabe68cfb3d80d12913a/Rplot%20-%20Bike%20Share%20Analysis%20%232.pdf>
+GGplot Visualization
+https://github.com/nsaraceni/Portfolio/blob/630bb417ce7134fdbfddaabe68cfb3d80d12913a/Rplot%20-%20Bike%20Share%20Analysis%20%232.pdf
 
 
 
