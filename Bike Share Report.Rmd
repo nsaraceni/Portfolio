@@ -148,15 +148,5 @@ tripdata_df_v2 %>%
 ```
 
 
-
-
-```{r}
-
-tripdata_df_v2 %\>% mutate(weekday = wday(start_time, label = TRUE))
-%\>% group_by(usertype, weekday) %\>% summarise(number_of_rides = n()
-,average_duration = mean(ride_length)) %\>% arrange(usertype, weekday)
-%\>% ggplot(aes(x = weekday, y = average_duration, fill = usertype)) +
-geom_col(position = "dodge")
-
-```
+![image](https://github.com/nsaraceni/Portfolio/assets/125894106/d76b588f-ab73-4a25-8183-a5c30e49b864)
 
