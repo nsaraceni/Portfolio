@@ -148,5 +148,5 @@ tripdata_df_v2 %>%
 ```
 
 
-![image](https://github.com/nsaraceni/Portfolio/assets/125894106/d76b588f-ab73-4a25-8183-a5c30e49b864)
+
 
