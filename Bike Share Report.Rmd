@@ -76,14 +76,15 @@ and insights.
 ### Further Analysis
 (These points coincide with the recommendation points. For example, points (a & 1 coincide))
 
-a. We need to see the difference of distance between the causal and member users. This could play a big factor as to why some prefer casual over member and how to convert more annual members. So, think about what the average traveler’s distance from point A to B is and how that plays into their membership. There could be a correlation.
+a. We need to see the difference of distance between the causal and member users. This could play a big factor as to why some prefer casual over member and how to convert more annual members. So, think about what the average travelerâ€™s distance from point A to B is and how that plays into their membership. There could be a correlation.
 b. As a consumer you must think the most users compare the price points with casual vs member. The annual membership should be sweet enough to where more than most casual riders will see that you might as well become an annual member. 
 c. You ultimately want users to bike as often as possible. This is where you can get creative with your users. Users should receive incentives more biking more or for reaching milestones in distance traveled. You can create competitions to where users achieve certain benefits for having the most miles or kilometers in a single month. This can go hand in hand with tracking calories.
-d. You need to create a cost benefit analysis on the stations that are getting used the least. There might be some that are in low volume areas where it’s not worth the cost of having it at that location. You might need Look into relocating stations as well. If there is a specific distance between certain stations, it could be cost-beneficial to the user, and this could ultimately convert more annual memberships.
+d. You need to create a cost benefit analysis on the stations that are getting used the least. There might be some that are in low volume areas where itâ€™s not worth the cost of having it at that location. You might need Look into relocating stations as well. If there is a specific distance between certain stations, it could be cost-beneficial to the user, and this could ultimately convert more annual memberships.
 e. Attack the easiest customer base you have. This is your current users (Casuals). Market to the casual users and give them simple one or two analytics that show how they can save from switching over. Also, show them the benefit of becoming an annual member by enticing them with a free trial run and letting them see how it differs.
 f. Another way to potentially gain new customers is to find out where there is a lot of foot traffic with walking/ bike trails. You could possibly funnel new customers to becoming casual members. 
 g. You can potentially connect with local businesses that may offer up perks if you shop with them by using Bike share. For example, if a user gets $1 off a coffee at a shop 2-3 miles down the street this would be beneficial for both parties. 
-* 
+
+
 ## Recommendations (Data/Business Analysis)
 1. Bike share needs data in regarding the distance traveled. 
 2. You need to make being a member worth the riders while.
