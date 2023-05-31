@@ -95,7 +95,7 @@ g. You can potentially connect with local businesses that may offer up perks if 
 7. Connect with the community.
 
 
-
+[Tableau Visualization Analysis]:<https://public.tableau.com/views/BikeShareCaseStudy_16854991938120/Dashboard1?:language=en-US&:display_count=n&:origin=viz_share_link
 
 
 
@@ -175,7 +175,7 @@ tripdata_df_v2%>%
   
 
 ```
-[image]: <https://github.com/nsaraceni/Portfolio/blob/a73555b47651fc3f6a08ee4f88d7e90f173cc357/Rplot-%20Bike%20Share%20Analysis.pdf>
+[GGplot Visualization]:<https://github.com/nsaraceni/Portfolio/blob/a73555b47651fc3f6a08ee4f88d7e90f173cc357/Rplot-%20Bike%20Share%20Analysis.pdf>
 
 
 ```{r analyzing data}
@@ -191,7 +191,7 @@ tripdata_df_v2 %>%
 
 
 ```
-[image]:<https://github.com/nsaraceni/Portfolio/blob/630bb417ce7134fdbfddaabe68cfb3d80d12913a/Rplot%20-%20Bike%20Share%20Analysis%20%232.pdf>
+[GGplot Visualization]:<https://github.com/nsaraceni/Portfolio/blob/630bb417ce7134fdbfddaabe68cfb3d80d12913a/Rplot%20-%20Bike%20Share%20Analysis%20%232.pdf>
 
 
 
