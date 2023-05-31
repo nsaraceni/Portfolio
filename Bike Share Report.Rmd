@@ -189,7 +189,7 @@ tripdata_df_v2 %>%
 
 
 ```
-[!image]<https://github.com/nsaraceni/Portfolio/blob/630bb417ce7134fdbfddaabe68cfb3d80d12913a/Rplot%20-%20Bike%20Share%20Analysis%20%232.pdf>
+[!image]:<https://github.com/nsaraceni/Portfolio/blob/630bb417ce7134fdbfddaabe68cfb3d80d12913a/Rplot%20-%20Bike%20Share%20Analysis%20%232.pdf>
 
 
 
