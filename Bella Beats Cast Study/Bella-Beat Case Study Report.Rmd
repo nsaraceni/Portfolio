@@ -1,0 +1,367 @@
+---
+title: "BellaBeat"
+author: "Nolan Saraceni"
+date: '2023-06-01'
+output: html_document
+editor_options: 
+  markdown: 
+    wrap: 72
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+# insalling proper packages and uploading 
+
+install.packages("tidyverse")
+install.packages("ggplot2")
+install.packages("dplyr")
+install.packages("janitor")
+install.packages("skimr")
+install.packages("readr")
+
+library(ggplot2)
+library(dplyr)
+library(janitor)
+library(skimr)
+library(tidyverse)
+library(readr)
+
+```
+
+```{r}
+# checking data information for sleep day and daily activity dataframes
+
+head(dailty_activity)
+glimpse(dailty_activity)
+str(dailty_activity)
+colnames(dailty_activity)
+skim_without_charts(dailty_activity)
+
+head(sleep_day)
+glimpse(sleep_day)
+str(sleep_day)
+colnames(sleep_day)
+skim_without_charts(sleep_day)
+
+
+```
+
+```{r}
+# check to see distinct users, some data sets have more rows than others
+
+n_distinct(daily_activity_df$Id)
+# 33 distincT **ID** values
+
+n_distinct(sleep_day$Id)
+# 24 distinct **ID** values
+
+
+```
+
+```{r}
+# Looking into observations of each dataframe
+
+nrow(daily_activity_df)
+# 940 rows
+
+nrow(sleep_day)
+# 413 rows
+
+```
+
+```{r}
+# stats we want to see for each dataframe Daiy activity
+
+
+
+```
+
+```{r}
+# seeing stats for dataframe sleep
+
+sleep_day%>%
+  select(Total_Sleep_Records, Total_Time_In_Bed,Total_Minutes_Asleep)%>%
+  summary()
+
+```
+
+```{r}
+# using ggplot to see data between measures
+
+
+
+
+ggplot(data = daily_activity_df)+geom_point(mapping = aes(x = Total_Steps, y = Sedentary_Minutes))
+#no correlation with a negative correlation
+
+
+ggplot(data = sleep_day)+ geom_point(mapping = aes(x = Total_Minutes_Asleep, y = Total_Time_In_Bed))
+# there is a tight and positive correlation with these two measures
+```
+
+```{r}
+
+ # comparing data and seeing correlations                                         
+
+ggplot(data = Activity_data_dfv3) + geom_point(mapping = (aes(x = Total_Minutes_Asleep, y = Calories, color = Calories)))
+ggplot(data = Activity_data_dfv3) + geom_point(mapping = (aes(x = Total_Steps, y = Calories, color = Calories)))
+ggplot(data = Activity_data_dfv3) + geom_point(mapping = (aes(y = Very_Active_Minutes, x = Total_Minutes_Asleep, color = Very_Active_Minutes)))
+ggplot(data = Activity_data_dfv3) + geom_point(mapping = (aes(x = Total_Minutes_Asleep, y = Total_Distance_Miles, color = Total_Minutes_Asleep)))
+
+
+
+```
+
+```{r}
+# merging data sets together sleepy_df and daily_activity
+
+Activity_data <- merge(sleep_day_df, daily_activity_df, by = "Id")
+
+```
+
+```{r}
+# merging tables using full_join, creating new data frames excluding data with select(). Splitting data in columns and renaming them with separate() and rename().
+
+# Atfer rechecking unique values
+
+
+ Activity_data_df<- Activity_data%>%
++ Activity_data <- full_join(sleep_day_df, daily_activity_df, by = "Id")
+
+
+```
+
+{r} #Exporting file and changing to a .csv
+
+write.csv(Activity_data_df, file = 'Activity_data_df.csv')
+
+***key business task***
+
+Gain insights into how consumers use non-Bellabeat smart devices and
+apply these findings to a selected Bellabeat product to inform marketing
+strategy.
+
+## Data Cleaning Process
+
+***277 Rows of missing data labeled (N/A) in columns 'TIME', 'DATE',
+'Total_sleep_records', 'Total_minutes_asleep', and 'Time_In_Bed'. Data
+cleaning was applied to Activity_data_df for a final DataFrame
+Activity_data_dfv3. We started with 12,668 rows and ended with 500
+rows.***
+
+Data cleaning was done with R and excel. First half with R, then
+imported into excel for additional cleaning.
+
+**R**
+
+-   Merged tables 'sleepDay' & 'dailyActivity' into Activity_data_df.
+
+-   Separated column sleepDay into two different columns & renamed 2 new
+    separate columns Date and Time
+
+-   Renamed columns: Origional column names (, TotalSleepRecords,
+    TotalMinutesAsleep, TotalSteps, TotalDistance, TrackerDistance,
+    LoggedActivitiesDistance, VeryActiveDistance,
+    ModeratelyActiveDistance, LightActiveDistance,
+    SedentaryActiveDistance, VeryActiveDistance, FairlyActiveDistance,
+    lightActiveDistance, SedentaryMinutes). Final column names:
+    (Total_Sleep_Records, Total_Minutes_Asleep, Total_Steps,
+    Total_Distance, Tracker_Distance, Logged_Activities_Distance,
+    Very_Active_Distance, Moderately_Active_Distance,
+    Light_Active_Distance, Sedentary_Active_Distance,
+    Very_Active_Distance, Fairly_Active_Distance, light_Active_Distance,
+    Sedentary_Minutes)
+
+    ![Final Column Names](Bella%20Beats%20Case%20Study%20/Capture.PNG)
+
+    ![](Bella%20Beats%20Case%20Study%20/Capture1.PNG)
+
+-   Created new data frame Activity_data_dfv2. Activity_data_df is
+    original data
+
+**Excel:**
+
+-- Transformed Data when imported--
+
+-   Removed column 'Date' \* duplicated 'Activity_Date' column
+
+-   Transformed new duplicated 'Activity_Date' data in column into name
+    of day. Ex, 4/12/2016 = Tuesday
+
+-   Renamed new duplicated 'Activity_Date' column to 'Day_of_Week'
+
+-   Removed duplicated values within Total_Distance Column \* Removed
+    missing data with n/a values in columns 'TIME', 'DATE',
+    'Total_sleep_records', 'Total_minutes_asleep', and 'Time_In_Bed'
+
+## Analysis
+
+#### What is your final conclusion based on your analysis?
+
+**(Please use visualizations. link provided below)**
+<https://public.tableau.com/app/profile/nolan.saraceni>
+
+My conclusion based on my analysis is overall this is a very well
+thought out product and application that is tied to each device. We were
+able to find trends that could potentially help with new ideas for
+Bellabeat to increase user interaction with the app or with other users.
+We decided to use this data and target the IVY which is a elegant and
+stylish wrist band. This also seems to be their most promising product
+out of the collection. Based on our analysis here are some Key metrics
+and elements.
+
+-   Tuesday, Wednesdays, and Saturdays have the highest volume when it
+    comes to total calories burned, miles, sleep minutes, and steps.
+    Ranked in order of top 3 days of the week, 1.Tuesday, 2.Wednesday,
+    3.Saturday.
+
+-   Saturday, Monday, and Friday have the lowest volume when it come to
+    the same metrics. Those are total calories burned, miles, sleep
+    minutes, and steps. Ranked in order of top worst, 1.Sunday,
+    2.Monday, 3.Friday.
+
+-   We compared variables such as sleep vs activity, steps vs calories,
+    sleep vs miles.
+
+    -   Steps vs calories: There is a high correlation with steps and
+        calories. The higher the steps the more calories burned and vice
+        verse.
+
+        ![](calories%20vs%20steps.png){width="342"}
+
+    -   Sleep vs activity: There are correlations between sleep and
+        activity. High sleep = high activity. But there were some
+        outliers within this data as well. For example, on April 19,
+        2016 we record a decent drop in minutes asleep but still had a
+        high consistency of activity. Another example, on May 1st-5th we
+        have big dip in activity when those days are recorded as the top
+        activity days.
+
+        ![Sleep vs
+        Activity](Very%20active%20min%20vs%20min%20asleep.png){width="356"}
+
+    -   Sleep vs Miles: These two variable seemed to be tightly
+        correlated high sleep = higher miles. May 1st, 2nd and 4th is
+        recorded as the lowest volume with total miles but sustained
+        relatively high minutes of sleep. This could be a common 'rest'
+        day for the user.
+
+![](sleep%20vs%20distance%20miles.png){width="369"}
+
+-   There were IDs attached to each piece of data so we aggregated data
+    to each user ID. The IDs can potentially coincide with potential
+    'users' as each ID. This allowed us to see some patterns in regards
+    to calories burned, sleep, and avg minutes of sleep compared to very
+    high activity.
+
+-   Consistency with certain user IDs holding placement either in the
+    top or the bottom for both months (April and May). We might be able
+    to assume that those IDs are just non-active to low-active users.
+    This could be something that could be categorized with the data. Put
+    each ID/user into 3 buckets would be helpful. 1.Low, 2.Average,
+    3.High- Activity. There are some blank cells within the table and
+    this signifies no data collected for reasons that are unknown.
+    Reasons could be the item was faulty and didn't pick up the data,
+    the user could not have worn the item so no data was tracked, Items
+    could have been lost or stolen. Too many unknown factors to pin down
+    specific reasoning. There seems to be little correlation between
+    calories burned and minutes asleep.
+
+-   Calories burned and Sleep Patterns: This was split up into two
+    months worth of data April and May.
+
+    -   **April** Calorie burn: user IDs with the last 3 digits 200,
+        328, 313, 081 were the top calorie burners. user IDs with the
+        last 3 digits 660, 955, 067, and 665 were the lowest performers
+        for the month of April.
+
+    -   **April** Sleep Patters: User IDs 072, 577, 035, and 328 has the
+        most overall sleep throughout the week Monday - Sunday as a
+        month total. User IDs 002, 171, 955, and 924 has the least
+        volume when it came to sleep throughout the week for the month
+        of April.
+
+    -   **May** Calorie Burners: Top calorie burners for May ar user IDs
+        336, 081, 072, and 279. Lowest calories burners are 665, 200,
+        328, and 926.
+
+    -   **May** Sleep Patterns: Top performers were IDs 847, 577, 035,
+        and 328. Lowest volume in minutes of sleep for the month of May
+        are user IDs 171, 955, 002, and 924.
+
+**There seems to be little correlation between calories burned and
+minutes asleep for months April and May.**
+
+![](calories%20vs%20sleep.png){width="396"}
+
+#### How could your team and business apply your insights?
+
+We can apply these insights by applying more motivation when it comes to
+activity and rest days. More interactions with the app and other users
+through the app could be more benefical as well. Users should be
+categorized by activity levels but not limited to the amount of features
+they can interact with. Users should be categorized into 3 activity
+buckets Moderate, Average, High or some sort of variation that separates
+and clearly distinguishes the activity level. Take into consideration
+the high correlations of data. You can formulate new features within the
+app based on these correlations. Take the patterns like sleep patterns
+and calories into more forethought. This product fixates on overall
+wellness so important key actions should be 'pushed' more than others
+such as sleep.
+
+#### Is there additional data you could use to expand on your findings?
+
+More data is always better. Instead of two months of data 6- 8 months
+could give us a clear picture and better visualizations in regards to
+the volatility of the trends for each user.
+
+## Recommendations
+
+#### What next steps would you or your stakeholders take based on your findings?
+
+-   You want this app to create a sense of community for women.
+-   Separate the users in regards to activity and where do they stand.
+    This will allow analysis to segregate the users and compare and
+    contrast all their data points more effectively. this could allow us
+    to see which group has higher overall wellness score.
+-   Allow users to interact with each other. The app does a great job
+    providing information to users but seems to limit interaction with
+    other users. You could add videos that show actual users making the
+    recipes Bellabeats suggests but adding their own variations to the
+    recipe. You could add live group yoga or pilates sessions and users
+    can interact with with comments, messaging, or audio.
+-   Add a feature to where users can submit anonymous tips about certain
+    subject matters that are more personal. Examples could be talking
+    about sex, pregnancy, and menstrual cycles and even relationship
+    issues.
+-   The app could also incorporate bi-annual group outdoor activities
+    across the country for Bellabeat near by users.
+-   Postpartum could be taken a bit further. Have a feature where there
+    is a group for postpartum moms that allows them to interact with one
+    another. Everyone has their own little secrets when dealing with
+    specific situations come postpartum. Let that be shared.
+-   Allow users to keep track of their calorie intake.
+
+#### How could these trends help influence Bellabeat marketing strategy?
+
+-   Create a outdoor activity day for current users within a high
+    Bellabeat user area. So if a city has a high user activity formulate
+    a Bellabeat outdoor activity day in that area. This could allow
+    users to bring friends and family. This can bring new potential
+    customers. Have additional attendees sign up with simple contact
+    information via QR code.
+-   Product giveaway/prize giveaways for consistent high activity. Much
+    like a fitness of the year award.
+-   User appreciation every month. Have people submit their personal
+    stories to be chosen for Bellabeat user appreciation month. The
+    user, when chosen, gets the ability to pop on a podcast with one of
+    the hosts associated with Bellbats and have conversation.
+-   Have incentives that push better wellness. A wellness campaign that
+    specifically targets all aspects of the users wellness.
+-   Celebrate users who have had children
+-   Bring Bellabeat users on a Bellabeat podcast that allows them to
+    talk about their experience and share who they are. Call it inside
+    with Bella. But the catch is every user is a Bella.
